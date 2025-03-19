@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES STORE</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Link to external CSS file -->
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2>ES STORE</h2>
+            </div>
+            <nav>
+               
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>بخێرهاتن بو بازارێت مە</h1>
+        <p>لڤێرێ داشکاندن برێژا 75% هەیە</p>
+    </section>
+
+    <section class="store-container">
+
+<!-- Product 1 -->
+        <div class="product-card">
+            <img src="004.jpg" alt="Item 1" class="product-img" onclick="openImageModal('002.jpg', '002.jpg', 'item1_3.jpg', 'RAM 4 / ROM 128', 120)">
+            <div class="product-details">
+                <h3>xiaomi 13 pro</h3>
+                <p class="description">باشترین کوالێتی </p>
+                <p class="price">120 هزار</p>
+                <p class="item-code">Code: AB34G2S</p>
+            </div>
+        </div>
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="002.jpg" alt="Item 1" class="product-img" onclick="openImageModal('002.jpg', '002.jpg', 'item1_3.jpg', 'Item 1', 10)">
+            <div class="product-details">
+                <h3>smart watch</h3>
+                <p class="description">باشترین کوالێتی </p>
+                <p class="price">$10</p>
+                <p class="item-code">Code: AB34G2S</p>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="003.jpg" alt="Item 2" class="product-img" onclick="openImageModal('item2.jpg', 'item2_2.jpg', 'item2_3.jpg', 'Item 2', 15)">
+            <div class="product-details">
+                <h3>Item 2</h3>
+                <p class="description">A premium product designed for ultimate comfort and luxury.</p>
+                <p class="price">$15</p>
+                <p class="item-code">Code: ITEM456</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <div class="image-modal-content">
+            <div class="image-scroll-container" id="imageScrollContainer">
+                <!-- Images will be added dynamically -->
+            </div>
+            <div class="modal-product-details" id="modalProductDetails">
+                <!-- Product Name and Price will be added dynamically -->
+            </div>
+            <button class="buy-btn" id="buyBtn" onclick="buyNow()">کرین</button>
+            <button class="close-btn" onclick="closeImageModal()">گرتن</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open image modal and show multiple images
+        function openImageModal(img1, img2, img3, productName, price) {
+            const modal = document.getElementById('imageModal');
+            const imageContainer = document.getElementById('imageScrollContainer');
+            const productDetails = document.getElementById('modalProductDetails');
+            const buyBtn = document.getElementById('buyBtn');
+
+            // Clear previous content in the modal
+            imageContainer.innerHTML = '';
+            productDetails.innerHTML = '';
+
+            // Add images dynamically to the modal
+            const images = [img1, img2, img3];
+            images.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+                imgElement.alt = 'Item Image';
+                imageContainer.appendChild(imgElement);
+            });
+
+            // Add product name and price to the modal
+            productDetails.innerHTML = `
+                <h3>${productName}</h3>
+                <p class="price">هزار${price}</p>
+            `;
+
+            // Show the modal
+            modal.style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        // Placeholder Buy Now Function
+        function buyNow() {
+            alert(' کودی دگەل ئەدرسی و ژمارا اکاونتێ تەjonmartn86@gmail.com');
+        }
+    </script>
+
+</body>
+</html>
